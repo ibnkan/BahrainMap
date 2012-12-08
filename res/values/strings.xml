@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Bahrain Map</string>
+    <string name="menu_settings">الإعدادات (قيد التطوير)</string>
+    <string name="maps_api_key">---</string>
+    <string name="just_now">قبل لحظات</string>
+    <string name="before">قبل</string>
+    <string name="minute">دقيقة</string>
+    <string name="minutes">دقائق</string>
+    <string name="one_minute_ago">قبل دقيقة</string>
+    <string name="two_minutes_ago">قبل دقيقتين</string>
+    <string name="hour">ساعة</string>
+    <string name="hours">ساعات</string>
+    <string name="an_hour_ago">قبل ساعة</string>
+    <string name="an_hour_half_ago">قبل ساعة و نصف</string>
+    <string name="two_hours_ago">قبل ساعتين</string>
+    <string name="yesterday">بالأمس</string>
+    <string name="old_tweet">تغريدة قديمة</string>
+    <string name="searchButton">Search Button</string>
+    <string name="refreshButton">Refresh Button</string>
+    <string name="drawerHandle">Drawer Handle</string>
+    <string name="nextMarkerButton">Next Marker Button</string>
+    <string name="previousMarkerButton">Previous Marker Button</string>
+    <string name="searchInputHint">كلمة البحث…</string>
+    <string name="empty">---</string>
+    <string name="latest_news">آخر الأخبار</string>
+
+    <string-array name="spinnerList">
+        <item>المظاهرات</item>
+        <item>نقاط  التفتيش</item>
+        <item>الإعتقالات</item>
+        <item>الشرطة</item>
+        <item>حالة الشوارع</item>
+        <item>الوفيات</item>
+        <item>أي شيء</item>
+    </string-array>
+
+    <string name="title_activity_news">NewsActivity</string>
+
+</resources>

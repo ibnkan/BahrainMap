@@ -1,0 +1,302 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity" >
+
+    <com.google.android.maps.MapView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/mapview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:apiKey="@string/maps_api_key"
+        android:clickable="true" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="45dip"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:animateLayoutChanges="true"
+        android:background="#aa000000"
+        android:baselineAligned="false" >
+
+        <LinearLayout
+            android:id="@+id/searchBar"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:animateLayoutChanges="true"
+            android:gravity="left"
+            android:visibility="gone" >
+
+            <ImageButton
+                android:id="@+id/exitSearch"
+                style="?@android:attr/borderlessButtonStyle"
+                android:layout_width="25dip"
+                android:layout_height="match_parent"
+                android:onClick="onExitSearchClick"
+                android:src="@drawable/ic_action_arrowleft" />
+
+            <EditText
+                android:id="@+id/searchInput"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:hint="@string/searchInputHint"
+                android:imeOptions="actionSearch"
+                android:inputType="text"
+                android:singleLine="true" >
+
+                <requestFocus />
+            </EditText>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/spinnerBar"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:animateLayoutChanges="true"
+            android:gravity="left"
+            android:visibility="visible" >
+
+            <Spinner
+                android:id="@+id/spinner"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:entries="@array/spinnerList" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:animateLayoutChanges="true"
+            android:gravity="right" >
+
+            <ImageButton
+                android:id="@+id/searchButton"
+                style="?@android:attr/borderlessButtonStyle"
+                android:layout_width="50dip"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/searchButton"
+                android:onClick="onSearchClick"
+                android:src="@drawable/ic_action_search" />
+
+            <ImageButton
+                android:id="@+id/refreshButton"
+                style="?@android:attr/borderlessButtonStyle"
+                android:layout_width="50dip"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/refreshButton"
+                android:onClick="onRefreshClick"
+                android:src="@drawable/ic_action_refresh" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <SlidingDrawer
+        android:id="@+id/slidingDrawer"
+        android:layout_width="match_parent"
+        android:layout_height="180dip"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:allowSingleTap="true"
+        android:content="@+id/content"
+        android:handle="@+id/handle" >
+
+        <ImageButton
+            android:id="@+id/handle"
+            style="?@android:attr/borderlessButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="40dip"
+            android:background="#aa000000"
+            android:contentDescription="@string/drawerHandle"
+            android:src="@drawable/ic_action_arrowup" />
+
+        <LinearLayout
+            android:id="@+id/content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#aa000000"
+            android:baselineAligned="false"
+            android:gravity="center" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical" >
+
+                <ImageButton
+                    android:id="@+id/translate"
+                    style="?@android:attr/borderlessButtonStyle"
+                    android:layout_width="40dip"
+                    android:layout_height="40dip"
+                    android:contentDescription="TODO"
+                    android:onClick="onTranslateClick"
+                    android:src="@drawable/ic_action_translate" />
+
+                <ImageButton
+                    android:id="@+id/nextMarker"
+                    style="?@android:attr/borderlessButtonStyle"
+                    android:layout_width="40dip"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/nextMarkerButton"
+                    android:onClick="onNextMarkerClick"
+                    android:paddingBottom="40dip"
+                    android:src="@drawable/ic_action_arrowleft" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/tweetDashBoard"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="2dip"
+                    android:layout_marginTop="2dip" >
+
+                    <TextView
+                        android:id="@+id/durationSince"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_gravity="left"
+                        android:layout_weight="1"
+                        android:ellipsize="marquee"
+                        android:gravity="left"
+                        android:lines="1"
+                        android:text="@string/empty"
+                        android:textColor="@android:color/white"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/userName"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:layout_weight="1"
+                        android:ellipsize="marquee"
+                        android:gravity="right"
+                        android:lines="1"
+                        android:text="@string/empty"
+                        android:textColor="@android:color/white"
+                        android:textSize="13sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tweetText"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dip"
+                    android:layout_marginBottom="1dip"
+                    android:layout_weight="1"
+                    android:autoLink="web"
+                    android:linksClickable="true"
+                    android:text="@string/empty"
+                    android:textColor="@android:color/white"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/timeStamp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_marginBottom="5dip"
+                    android:ellipsize="marquee"
+                    android:gravity="left"
+                    android:lines="1"
+                    android:text="@string/empty"
+                    android:textColor="@android:color/white"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical" >
+
+                <ImageButton
+                    android:id="@+id/userImage"
+                    android:layout_width="40dip"
+                    android:layout_height="40dip"
+                    android:contentDescription="TODO"
+                    android:onClick="onUserImageClick"
+                    android:src="@drawable/ic_action_userimage" />
+
+                <ImageButton
+                    android:id="@+id/previousMarker"
+                    style="?@android:attr/borderlessButtonStyle"
+                    android:layout_width="40dip"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/previousMarkerButton"
+                    android:onClick="onPreviousMarkerClick"
+                    android:paddingBottom="40dip"
+                    android:src="@drawable/ic_action_arrowright" />
+            </LinearLayout>
+        </LinearLayout>
+    </SlidingDrawer>
+
+    <ProgressBar
+        android:id="@+id/progressBar_refresh"
+        android:layout_width="32dip"
+        android:layout_height="32dip"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="8dip"
+        android:layout_marginTop="6dip"
+        android:visibility="gone" />
+
+    <ImageButton
+        android:id="@+id/zoomIn"
+        style="?@android:attr/borderlessButtonStyle"
+        android:layout_width="40dip"
+        android:layout_height="40dip"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:contentDescription="TODO"
+        android:onClick="onZoomInClick"
+        android:src="@drawable/zoom_in_map" />
+
+    <ImageButton
+        android:id="@+id/zoomOut"
+        style="?@android:attr/borderlessButtonStyle"
+        android:layout_width="40dip"
+        android:layout_height="40dip"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:contentDescription="TODO"
+        android:onClick="onZoomOutClick"
+        android:src="@drawable/zoom_out_map" />
+
+    <TextView
+        android:id="@+id/markerCounter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/linearLayout1"
+        android:lines="1"
+        android:paddingLeft="2dip"
+        android:paddingTop="1dip"
+        android:text="---/--- | "
+        android:textColor="@android:color/black"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/location_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/markerCounter"
+        android:layout_alignBottom="@+id/markerCounter"
+        android:layout_toRightOf="@+id/markerCounter"
+        android:lines="1"
+        android:paddingLeft="1dip"
+        android:text="@string/empty"
+        android:textColor="@android:color/black"
+        android:textSize="12sp" />
+
+</RelativeLayout>
