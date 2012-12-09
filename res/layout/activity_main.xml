@@ -93,6 +93,14 @@
                 android:contentDescription="@string/refreshButton"
                 android:onClick="onRefreshClick"
                 android:src="@drawable/ic_action_refresh" />
+
+            <ImageButton
+                android:id="@+id/menueButton"
+                style="?@android:attr/borderlessButtonStyle"
+                android:layout_width="24dip"
+                android:layout_height="match_parent"
+                android:onClick="onMenuClick"
+                android:src="@drawable/ic_action_menu" />
         </LinearLayout>
     </LinearLayout>
 
@@ -247,7 +255,7 @@
         android:layout_height="32dip"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:layout_marginRight="8dip"
+        android:layout_marginRight="32dip"
         android:layout_marginTop="6dip"
         android:visibility="gone" />
 

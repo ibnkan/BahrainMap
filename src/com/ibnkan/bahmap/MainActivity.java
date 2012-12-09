@@ -255,8 +255,9 @@ public class MainActivity extends MapActivity implements OnItemSelectedListener 
 			while ((line = bufferedReader.readLine()) != null) {
 				String[] parts = line.split(",");
 
-				LocationsList location = new LocationsList(parts[0].replaceAll(
-						"^ال", "(ال)*").replaceAll("\\s", "(\\\\s)*"),
+				LocationsList location = new LocationsList("\\b"
+						+ parts[0].replaceAll("^ال", "(ال)*").replaceAll("\\s",
+								"(\\\\s)*" + "\\b"),
 						Integer.parseInt(parts[1]), Integer.parseInt(parts[2]));
 
 				locationsList.add(location);
@@ -548,6 +549,10 @@ public class MainActivity extends MapActivity implements OnItemSelectedListener 
 		}
 	}
 
+	public void onMenuClick(View v) {
+		openOptionsMenu();
+	}
+
 	public void onUserImageClick(View v) {
 		Uri uri = Uri.parse("https://twitter.com/"
 				+ mapMarkers.getItem(markerIndex).from_user + "/status/"
@@ -728,7 +733,8 @@ public class MainActivity extends MapActivity implements OnItemSelectedListener 
 
 					TweetMarker localpoint = new TweetMarker(point,
 							location.name.replaceAll("\\(ال\\)\\*", "ال")
-									.replaceAll("\\(\\\\s\\)\\*", " "), "No",
+									.replaceAll("\\(\\\\s\\)\\*", " ")
+									.replaceAll("\\\\b", ""), "No",
 							tweet.from_user, tweet.text, tweet.created_at,
 							tweet.profile_image_url, tweet.id_str);
 
